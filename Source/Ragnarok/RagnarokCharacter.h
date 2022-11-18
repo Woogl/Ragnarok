@@ -6,6 +6,39 @@
 #include "GameFramework/Character.h"
 #include "RagnarokCharacter.generated.h"
 
+UENUM(BlueprintType)
+enum class ECharacterState : uint8
+{
+	Nothing,
+	Attacking,
+	Dodging,
+	GeneralActionState,
+	Dead,
+	Disabled,
+};
+
+UENUM(BlueprintType)
+enum class ECharacterAction : uint8
+{
+	Nothing,
+	GeneralAction,
+	LightAttack,
+	StrongAttack,
+	ChargedAttack,
+	FallingAttack,
+	Dodge,
+	EnterCombat,
+	ExitCombat,
+};
+
+UENUM(BlueprintType)
+enum class EMovementSpeedMode : uint8
+{
+	Walking,
+	Joging,
+	Sprinting,
+};
+
 UCLASS(config=Game)
 class ARagnarokCharacter : public ACharacter
 {
@@ -54,10 +87,17 @@ protected:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 	// End of APawn interface
 
+private:
+	UPROPERTY(BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+	EMovementSpeedMode MovementSpeedMode = EMovementSpeedMode::Joging;
+
 public:
 	/** Returns CameraBoom subobject **/
 	FORCEINLINE class USpringArmComponent* GetCameraBoom() const { return CameraBoom; }
 	/** Returns FollowCamera subobject **/
 	FORCEINLINE class UCameraComponent* GetFollowCamera() const { return FollowCamera; }
+
+	UFUNCTION(BlueprintCallable)
+	FORCEINLINE EMovementSpeedMode GetCurrentSpeedMode() const { return MovementSpeedMode; }	// 리턴 타입에 포인터(*) 붙여야하나?
 };
 
