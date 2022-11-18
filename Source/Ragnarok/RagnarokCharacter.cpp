@@ -58,7 +58,7 @@ void ARagnarokCharacter::SetupPlayerInputComponent(class UInputComponent* Player
 {
 	// Set up gameplay key bindings
 	check(PlayerInputComponent);
-	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ACharacter::Jump);
+	PlayerInputComponent->BindAction("Jump", IE_Pressed, this, &ARagnarokCharacter::MyJump);	// BlueprintImplementableEvent·Î ¸¸µê
 	PlayerInputComponent->BindAction("Jump", IE_Released, this, &ACharacter::StopJumping);
 
 	PlayerInputComponent->BindAxis("Move Forward / Backward", this, &ARagnarokCharacter::MoveForward);
@@ -71,20 +71,6 @@ void ARagnarokCharacter::SetupPlayerInputComponent(class UInputComponent* Player
 	PlayerInputComponent->BindAxis("Turn Right / Left Gamepad", this, &ARagnarokCharacter::TurnAtRate);
 	PlayerInputComponent->BindAxis("Look Up / Down Mouse", this, &APawn::AddControllerPitchInput);
 	PlayerInputComponent->BindAxis("Look Up / Down Gamepad", this, &ARagnarokCharacter::LookUpAtRate);
-
-	// handle touch devices
-	PlayerInputComponent->BindTouch(IE_Pressed, this, &ARagnarokCharacter::TouchStarted);
-	PlayerInputComponent->BindTouch(IE_Released, this, &ARagnarokCharacter::TouchStopped);
-}
-
-void ARagnarokCharacter::TouchStarted(ETouchIndex::Type FingerIndex, FVector Location)
-{
-	Jump();
-}
-
-void ARagnarokCharacter::TouchStopped(ETouchIndex::Type FingerIndex, FVector Location)
-{
-	StopJumping();
 }
 
 void ARagnarokCharacter::TurnAtRate(float Rate)
