@@ -21,9 +21,9 @@ UENUM(BlueprintType)
 enum class ECharacterAction : uint8
 {
 	Nothing,
-	GeneralAction,
+	General,
 	LightAttack,
-	StrongAttack,
+	HeavyAttack,
 	ChargedAttack,
 	FallingAttack,
 	Dodge,
