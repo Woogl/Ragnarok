@@ -10,6 +10,4 @@ void ACombatPlayerController::BeginPlay()
 
 	MainHUD = CreateWidget<UUserWidget>(GetWorld(), Widget);
 	MainHUD->AddToViewport();
-
-	UE_LOG(LogTemp, Warning, TEXT("PC BeginPlay"));
 }
