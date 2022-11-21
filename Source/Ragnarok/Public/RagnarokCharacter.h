@@ -7,32 +7,6 @@
 #include "RagnarokCharacter.generated.h"
 
 UENUM(BlueprintType)
-enum class ECharacterState : uint8
-{
-	Nothing,
-	Attacking,
-	Dodging,
-	GeneralActionState,
-	Dead,
-	Disabled,
-};
-
-UENUM(BlueprintType)
-enum class ECharacterAction : uint8
-{
-	Nothing,
-	General,
-	LightAttack,
-	HeavyAttack,
-	ChargedAttack,
-	FallingAttack,
-	SprintAttack,
-	Dodge,
-	EnterCombat,
-	ExitCombat,
-};
-
-UENUM(BlueprintType)
 enum class EMovementSpeedMode : uint8
 {
 	Walking,
