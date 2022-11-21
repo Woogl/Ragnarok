@@ -13,6 +13,9 @@ class ARagnarokGameMode : public AGameModeBase
 
 public:
 	ARagnarokGameMode();
+
+protected:
+	virtual void BeginPlay() override;
 };
 
 

@@ -13,3 +13,10 @@ ARagnarokGameMode::ARagnarokGameMode()
 		DefaultPawnClass = PlayerPawnBPClass.Class;
 	}
 }
+
+void ARagnarokGameMode::BeginPlay()
+{
+	Super::BeginPlay();
+
+	UE_LOG(LogTemp, Warning, TEXT("GM Begin Play"));
+}

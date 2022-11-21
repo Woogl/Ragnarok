@@ -26,6 +26,7 @@ enum class ECharacterAction : uint8
 	HeavyAttack,
 	ChargedAttack,
 	FallingAttack,
+	SprintAttack,
 	Dodge,
 	EnterCombat,
 	ExitCombat,
