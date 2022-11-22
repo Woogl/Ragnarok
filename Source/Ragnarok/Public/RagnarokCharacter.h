@@ -31,8 +31,11 @@ public:
 	ARagnarokCharacter();
 
 	/** Base turn rate, in deg/sec. Other scaling may affect final turn rate. */
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category=Input)
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category=Input)
 	float TurnRateGamepad;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = Input)
+	float TurnRateMouse = 1.0f;
 
 protected:
 
@@ -41,9 +44,6 @@ protected:
 
 	/** Called for side to side input */
 	void MoveRight(float Value);
-
-	UFUNCTION(BlueprintImplementableEvent)
-	void MyJump();
 
 	/** 
 	 * Called via input to turn at a given rate. 
@@ -56,6 +56,13 @@ protected:
 	 * @param Rate	This is a normalized rate, i.e. 1.0 means 100% of desired turn rate
 	 */
 	void LookUpAtRate(float Rate);
+
+	UFUNCTION(BlueprintImplementableEvent)
+	void MyJump();
+
+	void MyLookUp(float Rate);
+
+	void MyTurnRight(float Rate);
 
 protected:
 	// APawn interface
