@@ -7,7 +7,7 @@
 ARagnarokGameMode::ARagnarokGameMode()
 {
 	// set default pawn class to our Blueprinted character
-	static ConstructorHelpers::FClassFinder<APawn> PlayerPawnBPClass(TEXT("Blueprint'/Game/CombatSystem/Blueprints/BP_CombatPlayerCharacter'"));
+	static ConstructorHelpers::FClassFinder<APawn> PlayerPawnBPClass(TEXT("Blueprint'/Game/CombatSystem/Blueprints/Actors/BP_CombatPlayerCharacter'"));
 	if (PlayerPawnBPClass.Class != NULL)
 	{
 		DefaultPawnClass = PlayerPawnBPClass.Class;
